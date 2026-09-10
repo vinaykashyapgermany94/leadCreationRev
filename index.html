@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="leadCreationRev.css"/>
+        <script src="leadCreationRev.js"></script>
+    </head>
+    <body>
+        <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">    
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+        <script>
+        function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
+        </script>
+
+        <div class="formDiv">
+            <h1>Web to Lead Form</h1>
+            <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DQy00000qeU4m" method="POST" id="finalForm">
+                <!--Hidden fields are defined below-->
+                <input type=hidden name='captcha_settings' value='{"keyname":"WebToLeadForm","fallback":"true","orgId":"00DQy00000qeU4m","ts":""}'>
+                <input type=hidden name="oid" value="00DQy00000qeU4m">
+                <input type=hidden name="retURL" value="https://vinaykashyapgermany94.github.io/leadCreationRev/acknowledge.html">
+
+                <!--Form fields are defined below-->
+                <div class="formFields_div">
+                    <label for="first_name" class="formFields">First Name : </label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" class="formFields"/><br>
+                    <div class="first_name_div errorFont"></div>
+                </div>
+                <div class="formFields_div">
+                    <label for="last_name" class="formFields">Last Name : </label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" class="formFields"/><br>
+                    <div class="last_name_div errorFont"></div>
+                </div>
+                <div class="formFields_div">
+                    <label for="email" class="formFields">Email : </label><input  id="email" maxlength="80" name="email" size="20" type="text" class="formFields"/><br>
+                    <div class="email_div errorFont"></div>
+                </div>
+                <div class="formFields_div">
+                    <label for="company" class="formFields">Company : </label><input  id="company" maxlength="40" name="company" size="20" type="text" class="formFields"/><br>
+                    <div class="company_div errorFont"></div>
+                </div>
+                <div class="formFields_div">
+                    <label for="start_date" class="formFields">Lead Start Date : </label><input  id="start_date" maxlength="40" name="start_date" size="20" type="date" class="formFields"/><br>
+                    <div class="start_date_div errorFont"></div>
+                </div>
+
+                <input  id="00NQy000028yOZh" name="00NQy000028yOZh" size="20" type="hidden" class="germanFormattedDate"/><br>
+                <input type="hidden"  id="lead_source" name="lead_source" value="Web" /><br>
+
+                <!--recaptcha is defined below-->
+                <div class="g-recaptcha recaptchaClass" data-callback="setRecaptchaFlag" data-sitekey="6Lf3y7ItAAAAALyx0hKxrLlfdvy_Hjl61OWj9v8L"></div><br>
+                <div class="recaptcha_div errorFont"></div>
+                <div class="submitBtnDiv">
+                    <button type="submit" class="submitBtn" id="submitBtn">Submit</button>
+                </div>
+                <!--
+                    <input type="submit" name="submit">
+                -->
+            </form>
+        </div>
+    </body>
+</html>
+
+
+
